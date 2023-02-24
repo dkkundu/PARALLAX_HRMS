@@ -19,23 +19,37 @@ class UserManager(BaseUserManager):
             user.save(using=self._db)
             return user
 
+    def create_superuser(self, email, password=None, **extra_fields):
+        """Creates and returns a new superuser using an email address"""
+        extra_fields.setdefault('is_staff', True)
+        extra_fields.setdefault('is_superuser', True)
+        if not email:
+            raise AttributeError("User must set an email address")
+        else:
+            # normalizes the provided email
+            email = self.normalize_email(email)
+            user = self.model(email=email, **extra_fields)
+            user.set_password(password)
+            user.save(using=self._db)
+            return user
 
 
 class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(
-        _('Email Address'), max_length=255, unique=True, blank=False, null=True
+        verbose_name='Email Address', max_length=255, unique=True,
+        blank=False, null=True
     )
     is_staff = models.BooleanField(
-        _('Staff status'), default=False, null=True
+        verbose_name='Staff status', default=False, null=True
     )
     is_active = models.BooleanField(
-        _('Active'), default=True, null=True
+        verbose_name='Active', default=True, null=True
     )
     date_joined = models.DateTimeField(
-        _('Date Joined'), auto_now_add=True, null=True
+        verbose_name='Date Joined', auto_now_add=True, null=True
     )
     last_updated = models.DateTimeField(
-        _('Last Updated'), auto_now=True, null=True
+        verbose_name='Last Updated', auto_now=True, null=True
     )
 
     # uses the custom manager

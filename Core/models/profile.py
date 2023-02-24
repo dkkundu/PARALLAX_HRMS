@@ -19,6 +19,12 @@ class Profile(models.Model):
     user = models.OneToOneField(
         User, on_delete=models.CASCADE, primary_key=True, unique=True
     )
+    first_name = models.CharField(
+        verbose_name='First Name', max_length=255, blank=True, null=True
+    )
+    last_name = models.CharField(
+        verbose_name='Family Name', max_length=255, blank=True, null=True
+    )
     photo = models.ImageField(
         verbose_name="Profile photo", blank=True, null=True,
         upload_to=profile_upload_path
