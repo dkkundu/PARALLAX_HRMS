@@ -11,12 +11,14 @@ class UserRegistrationView(generics.CreateAPIView):
     serializer_class = UserSerializer
 
 
-# class UserProfileUpdateView(generics.UpdateAPIView):
-#     serializer_class = UserSerializer
-#
-#     def get_object(self):
-#         return get_object_or_404(Profile, user=self.request.user)
-#
+class UserProfileUpdateView(generics.UpdateAPIView):
+    serializer_class = UserSerializer
+
+    def get_object(self):
+        return get_object_or_404(Profile, user=self.request.user)
+
+
+
 #
 # class UserLoginView(generics.CreateAPIView):
 #     permission_classes = (AllowAny,)

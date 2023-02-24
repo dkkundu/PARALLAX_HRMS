@@ -1,6 +1,6 @@
-from .registration import (
-    UserRegistrationView
-)
+from .registration import UserRegistrationView
+from .profile import UserProfileView
+
 __all__ = [
-    UserRegistrationView
+    UserRegistrationView, UserProfileView
 ]
