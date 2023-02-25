@@ -27,5 +27,5 @@
     pip install -r requirements.txt
     python manage.py runserver 0.0.0.0:8000
     ```
-   > _NOTE: Browse to [http://0.0.0.0:9000/](http://0.0.0.0:9000/) or http://localhost:port as BASE URL. To view the api Please follow the [Documentation](https://hackmd.io/@dkkundu/r1Da9oPCi)
+   > _NOTE: Browse to [http://0.0.0.0:8000/](http://0.0.0.0:8000/) or http://localhost:port as BASE URL. To view the api Please follow the [Documentation](https://hackmd.io/@dkkundu/r1Da9oPCi)
 
