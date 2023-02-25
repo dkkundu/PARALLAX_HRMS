@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'Core.apps.CoreConfig',
     'rest_framework',
     'rest_framework_simplejwt',
+    'rest_framework_simplejwt.token_blacklist',
 
 ]
 
@@ -49,6 +50,11 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
+}
+
+JWT_AUTH = {
+    'JWT_BLACKLIST_ENABLED': True,
+    'JWT_BLACKLIST_TOKEN_CHECKS': ['jwt_blacklist.check_token_blacklist']
 }
 
 MIDDLEWARE = [
