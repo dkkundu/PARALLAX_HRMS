@@ -48,4 +48,3 @@ class UserSerializer(serializers.ModelSerializer):
                 v = None
             setattr(instance, k, v)
         instance.save()
-
